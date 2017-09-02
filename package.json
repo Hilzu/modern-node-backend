@@ -1,0 +1,91 @@
+{
+  "name": "modern-node-backend",
+  "version": "0.0.0",
+  "description": "Modern Node backend example/template",
+  "main": "lib/index.js",
+  "author": "Santeri Hiltunen",
+  "license": "CC0-1.0",
+  "engines": {
+    "node": "^8.4.0",
+    "npm": "^5.4.0",
+    "yarn": "^0.27.5"
+  },
+  "scripts": {
+    "build": "babel -sDd lib src",
+    "clean": "rm -rf lib",
+    "format": "prettier --write '*.{json,js}' 'src/**/*.{json,js}'",
+    "lint": "eslint .",
+    "start": "node $npm_package_main",
+    "start:dev": "yarn build -- -w & yarn watch",
+    "test": "yarn lint && yarn test:jest",
+    "test:jest": "jest",
+    "watch": "nodemon --watch lib --watch package.json | pino"
+  },
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-pino-logger": "^2.1.1",
+    "pino": "^4.7.1",
+    "pino-http": "^2.6.2",
+    "source-map-support": "^0.4.16",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.6.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-config-prettier": "^2.4.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-prettier": "^2.2.0",
+    "nodemon": "^1.11.0",
+    "prettier": "1.6.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:node/recommended",
+      "airbnb-base",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "plugins": ["prettier", "node"],
+    "rules": {
+      "node/no-unsupported-features": [
+        "error",
+        {
+          "ignores": ["modules"]
+        }
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "trailingComma": "all"
+        }
+      ],
+      "sort-imports": "error"
+    }
+  },
+  "prettier": {
+    "trailingComma": "all"
+  }
+}
