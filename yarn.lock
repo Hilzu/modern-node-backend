@@ -1790,12 +1790,6 @@ koa-is-json@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/koa-is-json/-/koa-is-json-1.0.0.tgz#273c07edcdcb8df6a2c1ab7d59ee76491451ec14"
 
-koa-pino-logger@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/koa-pino-logger/-/koa-pino-logger-2.1.1.tgz#84fedf22166bbbc8bc0aa63634916b7642f43936"
-  dependencies:
-    pino-http "^2.0.1"
-
 koa@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/koa/-/koa-2.3.0.tgz#9e1e8e4da401839c57b8527eadc57f76127555a7"
@@ -2264,7 +2258,7 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
-pino-http@^2.0.1, pino-http@^2.6.2:
+pino-http@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/pino-http/-/pino-http-2.6.2.tgz#aedb71b08d15bc69d959870bafa6b7780103274f"
   dependencies:
@@ -2620,8 +2614,8 @@ sntp@1.x.x:
     hoek "2.x.x"
 
 source-map-support@^0.4.15, source-map-support@^0.4.16:
-  version "0.4.16"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.16.tgz#16fecf98212467d017d586a2af68d628b9421cd8"
+  version "0.4.17"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.17.tgz#6f2150553e6375375d0ccb3180502b78c18ba430"
   dependencies:
     source-map "^0.5.6"
 

@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "koa": "^2.3.0",
-    "koa-pino-logger": "^2.1.1",
     "pino": "^4.7.1",
     "pino-http": "^2.6.2",
     "source-map-support": "^0.4.16",
