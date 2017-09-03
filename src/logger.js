@@ -1,8 +1,9 @@
 import pino from "pino";
 import pinoHttp from "pino-http";
 import uuidv4 from "uuid/v4";
+import config from "./config";
 
-const logger = pino({ name: "global" });
+const logger = pino({ name: "global", level: config.logging.level });
 
 process.on("uncaughtException", err => {
   logger.error(err, "Uncaught exception");
