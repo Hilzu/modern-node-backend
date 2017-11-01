@@ -15,6 +15,7 @@
     "clean": "rm -rf lib",
     "format": "prettier --write '*.{json,js}' 'src/**/*.{json,js}'",
     "lint": "eslint .",
+    "precommit": "lint-staged",
     "start": "node $npm_package_main",
     "start:dev": "yarn build -- -w & yarn watch",
     "test": "yarn lint && yarn test:jest",
@@ -36,7 +37,9 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-import": "^2.8.0",
+    "husky": "^0.14.3",
     "jest": "^21.2.1",
+    "lint-staged": "^4.3.0",
     "nodemon": "^1.12.1",
     "prettier": "1.7.4",
     "supertest": "^3.0.0"
@@ -54,11 +57,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "airbnb-base",
-      "prettier"
-    ]
+    "extends": ["eslint:recommended", "airbnb-base", "prettier"]
+  },
+  "lint-staged": {
+    "*{js,json}": ["prettier --write --config package.json", "git add"]
   },
   "prettier": {
     "trailingComma": "all"
