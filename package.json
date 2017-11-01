@@ -11,13 +11,13 @@
     "yarn": "^1.2.1"
   },
   "scripts": {
-    "build": "babel -sDd lib src",
+    "build": "babel --source-maps --copy-files --out-dir lib src",
     "clean": "rm -rf lib",
     "format": "prettier --write '*.{json,js}' 'src/**/*.{json,js}'",
     "lint": "eslint .",
     "precommit": "lint-staged",
     "start": "node $npm_package_main",
-    "start:dev": "yarn build -- -w & yarn watch",
+    "start:dev": "yarn build --watch & yarn watch",
     "test": "yarn lint && yarn test:jest",
     "test:jest": "jest",
     "watch": "nodemon --watch lib --watch package.json | pino"
