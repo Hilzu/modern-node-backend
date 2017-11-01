@@ -59,6 +59,9 @@
   "eslintConfig": {
     "extends": ["eslint:recommended", "airbnb-base", "prettier"]
   },
+  "jest": {
+    "roots": ["src"]
+  },
   "lint-staged": {
     "*{js,json}": ["prettier --write --config package.json", "git add"]
   },
