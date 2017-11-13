@@ -24,6 +24,8 @@
     "watch": "nodemon --watch lib --watch package.json | pino"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "koa": "^2.3.0",
     "pino": "^4.8.2",
     "pino-http": "^2.6.2",
@@ -31,9 +33,7 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
-    "babel-preset-env": "^1.6.1",
     "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.6.0",
