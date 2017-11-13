@@ -1,3 +1,6 @@
+// @flow
+
+import type { Context } from "koa";
 import pino from "pino";
 import pinoHttp from "pino-http";
 import uuidv4 from "uuid/v4";
@@ -26,7 +29,7 @@ const requestLogger = pinoHttp({
 const serializeReq = pino.stdSerializers.req;
 const serializeErr = pino.stdSerializers.err;
 
-export const loggerMiddleware = () => async (ctx, next) => {
+export const loggerMiddleware = () => async (ctx: Context, next: () => Promise<void>) => {
   requestLogger(ctx.req, ctx.res);
   ctx.logger = logger.child({ name: "context", id: ctx.req.id });
   try {

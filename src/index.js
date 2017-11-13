@@ -1,3 +1,5 @@
+// @flow
+
 import "source-map-support/register";
 import app from "./app";
 import config from "./config";

@@ -1,3 +1,5 @@
+// @flow
+
 import Koa from "koa";
 import config from "./config";
 import { loggerMiddleware } from "./logger";

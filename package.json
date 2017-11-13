@@ -13,6 +13,7 @@
   "scripts": {
     "build": "babel --source-maps --copy-files --out-dir lib src",
     "clean": "rm -rf lib",
+    "flow": "flow",
     "format": "prettier --write '*.{json,js}' 'src/**/*.{json,js}'",
     "lint": "eslint .",
     "precommit": "lint-staged",
@@ -31,12 +32,17 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
     "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-flowtype": "^2.39.1",
     "eslint-plugin-import": "^2.8.0",
+    "flow-bin": "^0.58.0",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "lint-staged": "^4.3.0",
@@ -46,6 +52,7 @@
   },
   "babel": {
     "presets": [
+      "flow",
       [
         "env",
         {
@@ -57,13 +64,25 @@
     ]
   },
   "eslintConfig": {
-    "extends": ["eslint:recommended", "airbnb-base", "prettier"]
+    "parser": "babel-eslint",
+    "plugins": ["flowtype"],
+    "extends": [
+      "eslint:recommended",
+      "airbnb-base",
+      "plugin:flowtype/recommended",
+      "prettier"
+    ]
   },
   "jest": {
-    "roots": ["src"]
+    "roots": [
+      "src"
+    ]
   },
   "lint-staged": {
-    "*{js,json}": ["prettier --write --config package.json", "git add"]
+    "*{js,json}": [
+      "prettier --write --config package.json",
+      "git add"
+    ]
   },
   "prettier": {
     "trailingComma": "all"
