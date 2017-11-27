@@ -1,6 +1,7 @@
-import pino from "pino";
-import pinoHttp from "pino-http";
-import uuidv4 from "uuid/v4";
+import * as pino from "pino";
+import * as pinoHttp from "pino-http";
+import * as uuidv4 from "uuid/v4";
+import { Request, Response } from "koa";
 import config from "./config";
 
 const logger = pino({ name: "global", level: config.logging.level });
@@ -18,8 +19,8 @@ const requestLogger = pinoHttp({
   logger: logger.child({ name: "request" }),
   genReqId: uuidv4,
   serializers: {
-    req: req => ({ id: req.id, method: req.method, url: req.url }),
-    res: res => ({ statusCode: res.statusCode }),
+    req: (req: Request) => ({ id: req.id, method: req.method, url: req.url }),
+    res: (res: Response) => ({ statusCode: res.status }),
   },
 });
 

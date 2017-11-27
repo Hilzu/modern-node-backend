@@ -2,7 +2,7 @@
   "name": "modern-node-backend",
   "version": "0.0.0",
   "description": "Modern Node backend example/template",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "author": "Santeri Hiltunen",
   "license": "CC0-1.0",
   "engines": {
@@ -11,8 +11,8 @@
     "yarn": "^1.2.1"
   },
   "scripts": {
-    "build": "babel --source-maps --copy-files --out-dir lib src",
-    "clean": "rm -rf lib",
+    "build": "tsc",
+    "clean": "rm -rf dist",
     "format": "prettier --write '*.{json,js}' 'src/**/*.{json,js}'",
     "lint": "eslint .",
     "precommit": "lint-staged",
@@ -20,7 +20,7 @@
     "start:dev": "yarn build --watch & yarn watch",
     "test": "yarn lint && yarn test:jest",
     "test:jest": "jest",
-    "watch": "nodemon --watch lib --watch package.json | pino"
+    "watch": "nodemon | pino"
   },
   "dependencies": {
     "koa": "^2.3.0",
@@ -30,6 +30,10 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
+    "@types/koa": "^2.0.40",
+    "@types/node": "^8.0.53",
+    "@types/pino": "^4.7.0",
+    "@types/uuid": "^3.4.3",
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
@@ -42,7 +46,8 @@
     "lint-staged": "^4.3.0",
     "nodemon": "^1.12.1",
     "prettier": "1.7.4",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "typescript": "^2.6.1"
   },
   "babel": {
     "presets": [
@@ -57,13 +62,22 @@
     ]
   },
   "eslintConfig": {
-    "extends": ["eslint:recommended", "airbnb-base", "prettier"]
+    "extends": [
+      "eslint:recommended",
+      "airbnb-base",
+      "prettier"
+    ]
   },
   "jest": {
-    "roots": ["src"]
+    "roots": [
+      "src"
+    ]
   },
   "lint-staged": {
-    "*{js,json}": ["prettier --write --config package.json", "git add"]
+    "*{js,json}": [
+      "prettier --write --config package.json",
+      "git add"
+    ]
   },
   "prettier": {
     "trailingComma": "all"
