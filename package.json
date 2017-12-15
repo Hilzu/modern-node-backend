@@ -2,7 +2,7 @@
   "name": "modern-node-backend",
   "version": "0.0.0",
   "description": "Modern Node backend example/template",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "author": "Santeri Hiltunen",
   "license": "CC0-1.0",
   "engines": {
@@ -10,59 +10,61 @@
     "yarn": "^1.2.1"
   },
   "scripts": {
-    "build": "babel --source-maps --copy-files --out-dir lib src",
-    "clean": "rm -rf lib",
-    "format": "prettier --write '*.{json,js}' 'src/**/*.{json,js}'",
-    "lint": "eslint .",
+    "format": "prettier --write '*.{mjs,js,json}' 'src/**/*.{mjs,js,json}'",
+    "lint": "eslint --ext mjs,js .",
     "precommit": "lint-staged",
     "start": "node $npm_package_main",
-    "start:dev": "yarn build --watch & yarn watch",
-    "test": "yarn lint && yarn test:jest",
-    "test:jest": "jest",
-    "watch": "nodemon --watch lib --watch package.json | pino"
+    "start:dev": "nodemon | pino",
+    "test": "yarn lint && yarn test:mocha",
+    "test:mocha": "NODE_ENV=test mocha -r @std/esm -r chai/register-expect test/*.mjs"
   },
   "dependencies": {
+    "@std/esm": "^0.18.0",
     "koa": "^2.4.1",
     "pino": "^4.10.2",
     "pino-http": "^2.6.2",
-    "source-map-support": "^0.5.0",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^21.2.0",
-    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
     "eslint": "^4.13.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.8.0",
     "husky": "^0.14.3",
-    "jest": "^21.2.1",
     "lint-staged": "^6.0.0",
+    "mocha": "^4.0.1",
     "nodemon": "^1.13.0",
     "prettier": "1.9.2",
     "supertest": "^3.0.0"
   },
-  "babel": {
-    "presets": [
-      [
-        "env",
+  "eslintConfig": {
+    "extends": ["eslint:recommended", "airbnb-base", "prettier"],
+    "settings": {
+      "import/extensions": [".mjs", ".js"],
+      "import/resolver": {
+        "node": {
+          "extensions": [".mjs", ".js", ".json"]
+        }
+      }
+    },
+    "rules": {
+      "import/extensions": [
+        "error",
+        "always",
         {
-          "targets": {
-            "node": "current"
-          }
+          "mjs": "never",
+          "js": "never"
         }
       ]
-    ]
-  },
-  "eslintConfig": {
-    "extends": ["eslint:recommended", "airbnb-base", "prettier"]
+    }
   },
   "jest": {
-    "roots": ["src"]
+    "roots": ["src"],
+    "setupFiles": ["./src/jest-setup.js"]
   },
   "lint-staged": {
-    "*{js,json}": ["prettier --write --config package.json", "git add"]
+    "*{mjs,js,json}": ["prettier --write --config package.json", "git add"]
   },
   "prettier": {
     "trailingComma": "all"

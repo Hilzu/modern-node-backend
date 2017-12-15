@@ -1,8 +1,2 @@
-import "source-map-support/register";
-import app from "./app";
-import config from "./config";
-import logger from "./logger";
-
-const server = app.listen(config.port, () => {
-  logger.info(server.address(), "Server listening");
-});
+require = require("@std/esm")(module); // eslint-disable-line no-global-assign
+module.exports = require("./server.mjs").default;
