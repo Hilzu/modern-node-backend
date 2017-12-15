@@ -7,7 +7,6 @@
   "license": "CC0-1.0",
   "engines": {
     "node": "^8.9.0",
-    "npm": "^5.5.1",
     "yarn": "^1.2.1"
   },
   "scripts": {
@@ -23,8 +22,8 @@
     "watch": "nodemon --watch lib --watch package.json | pino"
   },
   "dependencies": {
-    "koa": "^2.3.0",
-    "pino": "^4.8.2",
+    "koa": "^2.4.1",
+    "pino": "^4.10.2",
     "pino-http": "^2.6.2",
     "source-map-support": "^0.5.0",
     "uuid": "^3.1.0"
@@ -33,15 +32,15 @@
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
-    "eslint": "^4.10.0",
+    "eslint": "^4.13.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-config-prettier": "^2.6.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.8.0",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
-    "lint-staged": "^4.3.0",
-    "nodemon": "^1.12.1",
-    "prettier": "1.7.4",
+    "lint-staged": "^6.0.0",
+    "nodemon": "^1.13.0",
+    "prettier": "1.9.2",
     "supertest": "^3.0.0"
   },
   "babel": {
