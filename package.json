@@ -68,10 +68,6 @@
       ]
     }
   },
-  "jest": {
-    "roots": ["src"],
-    "setupFiles": ["./src/jest-setup.js"]
-  },
   "lint-staged": {
     "*{mjs,js,json}": ["prettier --write --config package.json", "git add"]
   },
