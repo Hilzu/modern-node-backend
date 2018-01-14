@@ -1,16 +1,17 @@
-import Koa from "koa";
-import config from "./config";
-import { loggerMiddleware } from "./logger";
+import express from "express";
+import requestLogger from "./middleware/request-logger";
+import errorHandler from "./middleware/error-handler";
+import notFound from "./middleware/not-found";
+import rootRouter from "./routes/root";
 
-const app = new Koa();
+const app = express();
 
-app.silent = config.env === "production";
+app.use(requestLogger());
 
-app.use(loggerMiddleware());
+app.use(rootRouter);
 
-app.use(ctx => {
-  ctx.logger.info("Hello world!");
-  ctx.body = { hello: "world" };
-});
+app.use(notFound);
+
+app.use(errorHandler);
 
 export default app;
