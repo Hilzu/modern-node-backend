@@ -16,7 +16,7 @@
     "start": "node $npm_package_main",
     "start:dev": "nodemon --watch src | pino",
     "test": "yarn lint && yarn test:mocha",
-    "test:mocha": "NODE_ENV=test mocha -r @std/esm -r chai/register-expect test/*.mjs"
+    "test:mocha": "NODE_ENV=test mocha -r @std/esm -r chai/register-expect test/**/*.mjs"
   },
   "dependencies": {
     "@std/esm": "^0.19.2",
