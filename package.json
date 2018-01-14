@@ -14,7 +14,7 @@
     "lint": "eslint --ext mjs,js .",
     "precommit": "lint-staged",
     "start": "node $npm_package_main",
-    "start:dev": "nodemon | pino",
+    "start:dev": "nodemon --watch src | pino",
     "test": "yarn lint && yarn test:mocha",
     "test:mocha": "NODE_ENV=test mocha -r @std/esm -r chai/register-expect test/*.mjs"
   },
