@@ -39,12 +39,23 @@
     "supertest": "^3.0.0"
   },
   "eslintConfig": {
-    "extends": ["eslint:recommended", "airbnb-base", "prettier"],
+    "extends": [
+      "eslint:recommended",
+      "airbnb-base",
+      "prettier"
+    ],
     "settings": {
-      "import/extensions": [".mjs", ".js"],
+      "import/extensions": [
+        ".mjs",
+        ".js"
+      ],
       "import/resolver": {
         "node": {
-          "extensions": [".mjs", ".js", ".json"]
+          "extensions": [
+            ".mjs",
+            ".js",
+            ".json"
+          ]
         }
       }
     },
@@ -69,7 +80,10 @@
     }
   },
   "lint-staged": {
-    "*{mjs,js,json}": ["prettier --write --config package.json", "git add"]
+    "*{mjs,js,json}": [
+      "prettier --write --config package.json",
+      "git add"
+    ]
   },
   "prettier": {
     "trailingComma": "all"
