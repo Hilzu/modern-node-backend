@@ -10,8 +10,10 @@ const errorHandler = (err, req, res, _next) => {
   const logLevel = status < 500 ? "warn" : "error";
   req.log[logLevel](err, "Handling request failed");
 
-  const body = { error: { message: err.message, status } };
-  if (config.env !== "production") {
+  const body = {
+    error: { message: err.message, name: err.name, status, data: err.data },
+  };
+  if (config.env === "development") {
     body.error.stack = err.stack;
   }
 

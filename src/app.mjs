@@ -2,13 +2,14 @@ import express from "express";
 import requestLogger from "./middleware/request-logger";
 import errorHandler from "./middleware/error-handler";
 import notFound from "./middleware/not-found";
-import rootRouter from "./routes/root";
+import examplesRouter from "./routes/examples";
 
 const app = express();
 
 app.use(requestLogger());
+app.use(express.json());
 
-app.use(rootRouter);
+app.use("/examples", examplesRouter);
 
 app.use(notFound);
 

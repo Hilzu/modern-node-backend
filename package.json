@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@std/esm": "^0.19.2",
+    "ajv": "^6.0.1",
     "express": "^4.16.2",
     "pino": "^4.10.3",
     "pino-http": "^3.0.1",

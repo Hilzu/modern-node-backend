@@ -27,7 +27,7 @@ be [more easily used with @std/esm][jest-esm].
 SuperTest is the easiest way to test endpoints with a fluent API and without
 having to worry about starting/stopping the server.
 
-### [pino logger][pino]
+### [pino][pino]
 
 pino is a fast JSON logger with a good API and sensible defaults. Nicer to use
 than Winston.
@@ -66,6 +66,11 @@ creating one if the middleware needs to be parametrized.
 All code that handle certain paths live here. Modules should default export an
 Express router that is attached either in `app.mjs` or a module that strings
 together several routes.
+
+### `src/routes/examples.mjs`
+
+This file contains examples how to define routes and how to use the validate
+middleware.
 
 ## Using this template
 
