@@ -1,0 +1,29 @@
+openapi: 3.0.1
+info:
+  title: Test API
+  version: 1.0.0
+paths:
+  /api:
+    get:
+      responses:
+        200:
+          description: All ok
+    post:
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              properties:
+                input:
+                  type: string
+              required:
+               - input
+      responses:
+        200:
+          description: Echoed input
+          content:
+            'application/json':
+              schema:
+                properties:
+                  output:
+                    type: string

@@ -22,8 +22,10 @@
     "@std/esm": "^0.19.6",
     "ajv": "^6.0.1",
     "express": "^4.16.2",
+    "js-yaml": "^3.10.0",
     "pino": "^4.10.3",
     "pino-http": "^3.0.1",
+    "swagger-ui-dist": "^3.9.1",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
