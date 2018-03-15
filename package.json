@@ -6,8 +6,8 @@
   "author": "Santeri Hiltunen",
   "license": "CC0-1.0",
   "engines": {
-    "node": "^8.9.0",
-    "yarn": "^1.2.1"
+    "node": "^8.10.0",
+    "yarn": "^1.5.1"
   },
   "scripts": {
     "format": "prettier --write '*.{mjs,js,json}' 'src/**/*.{mjs,js,json}'",
@@ -16,27 +16,27 @@
     "start": "node $npm_package_main | cat",
     "start:dev": "nodemon --watch src | pino",
     "test": "yarn lint && yarn test:mocha",
-    "test:mocha": "NODE_ENV=test mocha -r @std/esm -r chai/register-expect test/**/*.mjs"
+    "test:mocha": "NODE_ENV=test mocha -r esm -r chai/register-expect test/**/*.mjs"
   },
   "dependencies": {
-    "@std/esm": "^0.19.6",
-    "ajv": "^6.0.1",
-    "express": "^4.16.2",
-    "pino": "^4.10.3",
-    "pino-http": "^3.0.1",
+    "ajv": "^6.2.1",
+    "esm": "^3.0.5",
+    "express": "^4.16.3",
+    "pino": "^4.14.0",
+    "pino-http": "^3.2.1",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "eslint": "^4.15.0",
+    "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.9.0",
     "husky": "^0.14.3",
-    "lint-staged": "^6.0.0",
-    "mocha": "^5.0.0",
-    "nodemon": "^1.14.11",
-    "prettier": "1.10.2",
+    "lint-staged": "^7.0.0",
+    "mocha": "^5.0.4",
+    "nodemon": "^1.17.2",
+    "prettier": "1.11.1",
     "supertest": "^3.0.0"
   },
   "eslintConfig": {
@@ -79,6 +79,9 @@
         }
       ]
     }
+  },
+  "esm": {
+    "mode": "strict"
   },
   "lint-staged": {
     "*{mjs,js,json}": [
