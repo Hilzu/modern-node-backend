@@ -10,7 +10,7 @@
     "yarn": "^1.5.1"
   },
   "scripts": {
-    "format": "prettier --write '*.{mjs,js,json}' 'src/**/*.{mjs,js,json}'",
+    "format": "prettier --write '*.{mjs,js,json}' '{src,test}/**/*.{mjs,js,json}'",
     "lint": "eslint --ext mjs,js .",
     "precommit": "lint-staged",
     "start": "node $npm_package_main | cat",
